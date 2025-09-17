@@ -432,6 +432,10 @@
         .results-content {
             text-align: center;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
         }
 
         .results-title {
@@ -472,12 +476,13 @@
             background: rgba(255, 255, 255, 0.8);
             padding: 28px;
             border-radius: 20px;
-            margin: 20px 0;
+            margin: 0;
             border: 2px solid rgba(22, 56, 114, 0.1);
             font-size: 18px;
             text-align: center !important;
             width: 100%;
             max-width: 350px;
+            min-height: 120px;
             position: relative;
             z-index: 1;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -486,6 +491,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
         }
 
         .result-item:hover {
