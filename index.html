@@ -4,6 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalkulator Wietrzenia - Winkhaus</title>
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    
+    <!-- SEO and Social Meta -->
+    <meta name="description" content="Kalkulator czasu wietrzenia Winkhaus - oblicz czas potrzebny do całkowitej wymiany powietrza w pomieszczeniu z oknem z funkcją wietrzenia na 6-tkę.">
+    <meta name="keywords" content="kalkulator wietrzenia, Winkhaus, okna, wentylacja, wietrzenie pomieszczenia">
+    <meta name="author" content="Winkhaus">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Kalkulator Wietrzenia - Winkhaus">
+    <meta property="og:description" content="Sprawdź, jak szybko wywietrzysz pomieszczenie z oknem Winkhaus z funkcją wietrzenia na 6-tkę">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://oknona6.pl/">
+    <meta property="og:site_name" content="Okno na 6 - Winkhaus">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://oknona6.pl/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#163872">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Okno na 6">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Kalkulator Wietrzenia Winkhaus",
+        "url": "https://oknona6.pl/",
+        "description": "Kalkulator czasu wietrzenia dla okien Winkhaus z funkcją wietrzenia na 6-tkę",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "PLN"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Winkhaus",
+            "url": "https://winkhaus.pl/"
+        },
+        "inLanguage": ["pl", "cs", "ru"],
+        "browserRequirements": "HTML5, JavaScript"
+    }
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -776,7 +836,54 @@
         let pozostalyCzas = 0;
         let isPaused = false;
 
+        // Security: Input validation function
+        function validateInput(width, length, height, windowWidth, windowHeight, season) {
+            // Check for valid numbers
+            const values = [width, length, height, windowWidth, windowHeight];
+            for (let value of values) {
+                if (isNaN(value) || !isFinite(value) || value <= 0 || value > 1000) {
+                    return false;
+                }
+            }
+            
+            // Check season value
+            const validSeasons = ['fall', 'spring'];
+            if (!validSeasons.includes(season)) {
+                return false;
+            }
+            
+            // Logical validation
+            if (windowWidth >= width || windowHeight >= height) {
+                return false;
+            }
+            
+            return true;
+        }
+
+        // Security: Sanitize output to prevent XSS
+        function sanitizeOutput(value) {
+            if (typeof value === 'number') {
+                return isFinite(value) ? value.toFixed(2) : '0.00';
+            }
+            return String(value).replace(/[<>]/g, '');
+        }
+
+        // Zmienne globalne do przechowywania stanu dla aktualizacji tłumaczeń
+        let currentDisplayState = 'initial'; // 'initial', 'error', 'results', 'completed'
+        let currentResults = null;
+
+        // Security: Rate limiting
+        let lastCalculationTime = 0;
+        const CALCULATION_COOLDOWN = 500; // 500ms between calculations
+
         function obliczCzasWietrzenia() {
+            // Rate limiting check
+            const now = Date.now();
+            if (now - lastCalculationTime < CALCULATION_COOLDOWN) {
+                return;
+            }
+            lastCalculationTime = now;
+
             try {
                 const poraRoku = document.getElementById("season").value;
                 const szerokosc = parseFloat(document.getElementById("width").value);
@@ -793,9 +900,10 @@
                     timerInterval = null;
                 }
 
-                // Walidacja danych
-                if (isNaN(szerokosc) || isNaN(dlugosc) || isNaN(wysokosc) || isNaN(szerokoscOkna) || isNaN(wysokoscOkna) || 
-                    szerokosc <= 0 || dlugosc <= 0 || wysokosc <= 0 || szerokoscOkna <= 0 || wysokoscOkna <= 0) {
+                // Enhanced security validation
+                if (!validateInput(szerokosc, dlugosc, wysokosc, szerokoscOkna, wysokoscOkna, poraRoku)) {
+                    currentDisplayState = 'error';
+                    currentResults = null;
                     resultsContent.innerHTML = `
                         <div class="results-title">${t('error')}</div>
                         <p>${t('errorMessage')}</p>
@@ -845,6 +953,9 @@
         }
 
         function aktualizujWyswietlanie(kubatura, obwodOkna, czasCalkowity) {
+            currentDisplayState = 'results';
+            currentResults = { kubatura, obwodOkna, czasCalkowity, pozostalyCzas };
+            
             const minuty = Math.floor(pozostalyCzas / 60);
             const sekundy = pozostalyCzas % 60;
             const czasFormatowany = `${minuty}:${sekundy.toString().padStart(2, '0')}`;
@@ -856,17 +967,17 @@
                 
                 <div class="result-item">
                     <div class="result-label">${t('ventilationTime')}</div>
-                    <div class="result-value">${czasCalkowity} ${t('minutes')}</div>
+                    <div class="result-value">${sanitizeOutput(czasCalkowity)} ${t('minutes')}</div>
                 </div>
                 
                 <div class="result-item">
                     <div class="result-label">${t('roomVolume')}</div>
-                    <div class="result-value">${kubatura.toFixed(2)} m³</div>
+                    <div class="result-value">${sanitizeOutput(kubatura)} m³</div>
                 </div>
                 
                 <div class="result-item">
                     <div class="result-label">${t('windowPerimeter')}</div>
-                    <div class="result-value">${obwodOkna.toFixed(2)} m</div>
+                    <div class="result-value">${sanitizeOutput(obwodOkna)} m</div>
                 </div>
 
                 <button class="timer-btn" onclick="toggleTimer()">
@@ -877,6 +988,9 @@
         }
 
         function pokazZakonczenie(kubatura, obwodOkna, czasCalkowity) {
+            currentDisplayState = 'completed';
+            currentResults = { kubatura, obwodOkna, czasCalkowity };
+            
             const resultsContent = document.getElementById("resultsContent");
             resultsContent.innerHTML = `
                 <div class="completion-message">
@@ -885,17 +999,17 @@
                 
                 <div class="result-item">
                     <div class="result-label">${t('calculatedTime')}</div>
-                    <div class="result-value">${czasCalkowity} ${t('minutes')}</div>
+                    <div class="result-value">${sanitizeOutput(czasCalkowity)} ${t('minutes')}</div>
                 </div>
                 
                 <div class="result-item">
                     <div class="result-label">${t('roomVolume')}</div>
-                    <div class="result-value">${kubatura.toFixed(2)} m³</div>
+                    <div class="result-value">${sanitizeOutput(kubatura)} m³</div>
                 </div>
                 
                 <div class="result-item">
                     <div class="result-label">${t('windowPerimeter')}</div>
-                    <div class="result-value">${obwodOkna.toFixed(2)} m</div>
+                    <div class="result-value">${sanitizeOutput(obwodOkna)} m</div>
                 </div>
 
                 <button class="timer-btn" onclick="obliczCzasWietrzenia()">${t('newCalculation')}</button>
@@ -915,6 +1029,9 @@
                 clearInterval(timerInterval);
                 timerInterval = null;
             }
+            
+            currentDisplayState = 'initial';
+            currentResults = null;
             
             const resultsContent = document.getElementById("resultsContent");
             resultsContent.innerHTML = `
@@ -1069,12 +1186,42 @@
                     element.placeholder = translations[lang][key];
                 }
             });
+            
+            // Aktualizacja dynamicznie generowanej zawartości
+            updateDynamicContent();
         }
 
         // Funkcja pomocnicza do pobierania tłumaczeń
         let currentLanguage = 'pl';
         function t(key) {
             return translations[currentLanguage] && translations[currentLanguage][key] ? translations[currentLanguage][key] : key;
+        }
+
+        // Funkcja do aktualizacji dynamicznie generowanej zawartości
+        function updateDynamicContent() {
+            if (!currentResults && currentDisplayState === 'initial') {
+                // Stan początkowy
+                const resultsContent = document.getElementById("resultsContent");
+                resultsContent.innerHTML = `
+                    <div class="no-results">
+                        <h2 class="results-title">${t('calculationResults')}</h2>
+                        <p>${t('enterDataMessage')}</p>
+                    </div>
+                `;
+            } else if (currentDisplayState === 'error') {
+                // Komunikat błędu
+                const resultsContent = document.getElementById("resultsContent");
+                resultsContent.innerHTML = `
+                    <div class="results-title">${t('error')}</div>
+                    <p>${t('errorMessage')}</p>
+                `;
+            } else if (currentDisplayState === 'results' && currentResults) {
+                // Wyniki z timerem - wywołaj funkcję aktualizacji
+                aktualizujWyswietlanie(currentResults.kubatura, currentResults.obwodOkna, currentResults.czasCalkowity);
+            } else if (currentDisplayState === 'completed' && currentResults) {
+                // Komunikat zakończenia
+                pokazZakonczenie(currentResults.kubatura, currentResults.obwodOkna, currentResults.czasCalkowity);
+            }
         }
 
         // Obsługa zmiany języka
@@ -1085,6 +1232,8 @@
         // Inicjalizacja domyślnego języka
         document.addEventListener('DOMContentLoaded', function() {
             currentLanguage = 'pl';
+            currentDisplayState = 'initial';
+            currentResults = null;
             changeLanguage('pl');
         });
     </script>

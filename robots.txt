@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Allow: /index.html
+
+# Block access to sensitive files
+Disallow: /.htaccess
+Disallow: /.git/
+Disallow: /*.log$
+Disallow: /*.tmp$
+
+# Sitemap
+Sitemap: https://oknona6.pl/sitemap.xml
