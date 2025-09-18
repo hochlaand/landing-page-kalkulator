@@ -71,14 +71,38 @@
             box-sizing: border-box;
         }
 
+        html {
+            background-image: url('clouds.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            width: 100%;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        html::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.6);
+            z-index: -1;
+        }
+
         body {
             font-family: "Gotham", Arial, sans-serif;
-            background: linear-gradient(180deg, rgba(228, 228, 228, 1) 0%, rgba(255, 255, 255, 1) 100%);
+            background: transparent;
             min-height: 100vh;
             margin: 0;
             padding: 0;
             color: #333;
             overflow-x: hidden;
+            width: 100%;
+            position: relative;
         }
 
         .header-section {
@@ -123,7 +147,7 @@
         .language-select {
             padding: 8px 12px;
             border: 2px solid rgba(22, 56, 114, 0.2);
-            border-radius: 8px;
+            border-radius: 0;
             background: rgba(255, 255, 255, 0.95);
             font-size: 14px;
             color: #163872;
@@ -159,21 +183,15 @@
         }
 
         .logo-container {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            padding: 12px 16px;
-            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 20px rgba(22, 56, 114, 0.15);
-            border: 1px solid rgba(22, 56, 114, 0.1);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-sizing: border-box;
         }
 
         .logo-container:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(22, 56, 114, 0.2);
         }
 
         .logo-img {
@@ -191,10 +209,34 @@
             line-height: 1;
         }
 
+        /* Calculator section with transparent background */
+        .calculator-section {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .calculator-section .calculator-container {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Mobile responsiveness for calculator section */
+        @media (max-width: 768px) {
+            .calculator-section {
+                padding: 20px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calculator-section {
+                padding: 10px 0;
+            }
+        }
+
         .calculator-container {
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(30px);
-            border-radius: 24px;
+            border-radius: 0;
             box-shadow: 0 32px 80px rgba(22, 56, 114, 0.12), 0 8px 32px rgba(0, 0, 0, 0.08);
             overflow: hidden;
             max-width: 1400px;
@@ -220,7 +262,7 @@
             right: 0;
             bottom: 0;
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(22, 56, 114, 0.05) 100%);
-            border-radius: 0 0 0 24px;
+            border-radius: 0;
         }
 
         .calculator-results {
@@ -316,7 +358,7 @@
             width: 100%;
             padding: 18px 24px;
             border: 2px solid rgba(22, 56, 114, 0.2);
-            border-radius: 16px;
+            border-radius: 0;
             background: rgba(255, 255, 255, 0.9);
             font-size: 16px;
             color: #163872;
@@ -342,7 +384,7 @@
         .form-select {
             padding: 18px 24px;
             border: 2px solid rgba(22, 56, 114, 0.2);
-            border-radius: 16px;
+            border-radius: 0;
             background: rgba(255, 255, 255, 0.9);
             font-size: 16px;
             color: #163872;
@@ -383,7 +425,7 @@
             background: linear-gradient(135deg, #163872 0%, #1e40af 100%);
             color: #ffffff;
             border: none;
-            border-radius: 20px;
+            border-radius: 0;
             padding: 20px 40px;
             font-size: 16px;
             font-weight: 600;
@@ -467,7 +509,7 @@
             width: 120%;
             height: 120%;
             background: radial-gradient(circle, rgba(22, 56, 114, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
+            border-radius: 0;
             z-index: -1;
             animation: pulse 2s ease-in-out infinite;
         }
@@ -475,7 +517,7 @@
         .result-item {
             background: rgba(255, 255, 255, 0.8);
             padding: 28px;
-            border-radius: 20px;
+            border-radius: 0;
             margin: 0;
             border: 2px solid rgba(22, 56, 114, 0.1);
             font-size: 18px;
@@ -519,7 +561,7 @@
             background: linear-gradient(135deg, #163872 0%, #1e40af 100%);
             color: white;
             padding: 40px;
-            border-radius: 24px;
+            border-radius: 0;
             font-size: 26px;
             font-weight: 700;
             margin: 40px 0;
@@ -547,7 +589,7 @@
             position: absolute;
             inset: 2px;
             background: linear-gradient(135deg, #163872 0%, #1e40af 100%);
-            border-radius: 22px;
+            border-radius: 0;
             z-index: -1;
         }
 
@@ -568,21 +610,58 @@
         }
 
         .timer-btn {
-            background: rgba(255, 255, 255, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
+            background: linear-gradient(135deg, #163872 0%, #1e40af 100%);
+            color: #ffffff;
+            border: none;
+            border-radius: 0;
+            padding: 20px 40px;
             font-size: 16px;
             font-weight: 600;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 20px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: "Gotham", sans-serif;
+            letter-spacing: 1px;
+            margin: 10px 5px 0 5px;
+            min-width: 180px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 8px 30px rgba(22, 56, 114, 0.3);
+            overflow: hidden;
+        }
+
+        .timer-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .timer-btn:hover::before {
+            left: 100%;
         }
 
         .timer-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            border-color: rgba(255, 255, 255, 0.5);
+            background: linear-gradient(135deg, #1e40af 0%, #163872 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(22, 56, 114, 0.4);
+        }
+
+        .timer-btn:active {
+            transform: translateY(0);
+        }
+
+        .timer-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
         }
 
         .no-results {
@@ -594,34 +673,78 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-container {
-                padding: 0 15px;
-                flex-direction: column;
-                gap: 15px;
+                padding: 0 20px;
+                justify-content: space-between;
+                align-items: center;
             }
 
             .language-selector {
-                order: 1;
+                flex-direction: column;
+                gap: 5px;
+                align-items: flex-end;
             }
 
             .header-logo {
-                order: 2;
                 margin-right: 0;
             }
 
             .language-select {
-                min-width: 100px;
+                min-width: 80px;
                 font-size: 12px;
+                padding: 6px 10px;
             }
 
             .language-label {
-                font-size: 12px;
+                font-size: 11px;
             }
 
             .calculator-container {
                 grid-template-columns: 1fr;
                 max-width: 500px;
             }
+        }
+        
+        @media (max-width: 480px) {
+            .header-container {
+                padding: 0 15px;
+            }
+            
+            .language-selector {
+                gap: 3px;
+            }
+            
+            .language-label {
+                font-size: 10px;
+            }
+            
+            .language-select {
+                min-width: 70px;
+                font-size: 11px;
+                padding: 5px 8px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .header-container {
+                padding: 0 10px;
+            }
+            
+            .language-label {
+                display: none;
+            }
+            
+            .language-selector {
+                gap: 0;
+            }
+            
+            .language-select {
+                min-width: 60px;
+                font-size: 10px;
+                padding: 4px 6px;
+            }
+        }
 
+        @media (max-width: 600px) {
             .calculator-form,
             .calculator-results {
                 padding: 30px 20px;
@@ -639,8 +762,19 @@
                 font-size: 48px;
             }
 
+            .timer-btn {
+                min-width: 150px;
+                padding: 15px 30px;
+                font-size: 14px;
+            }
+
+            .timer-controls {
+                gap: 8px;
+            }
+
             .form-title {
                 font-size: 24px;
+                white-space: nowrap;
             }
         }
 
@@ -699,7 +833,7 @@
             width: 200px;
             height: 200px;
             background: radial-gradient(circle, rgba(22, 56, 114, 0.08) 0%, transparent 70%);
-            border-radius: 50%;
+            border-radius: 0;
             top: -100px;
             right: -100px;
             animation: float 8s ease-in-out infinite;
@@ -730,6 +864,10 @@
 
         /* Improved mobile responsiveness */
         @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
+            
             .calculator-container {
                 grid-template-columns: 1fr;
                 margin: 0 20px 40px 20px;
@@ -742,10 +880,72 @@
             
             .form-title {
                 font-size: 2.2rem;
+                white-space: nowrap;
             }
             
             .timer-display {
                 font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .calculator-container {
+                margin: 0 10px 40px 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .form-title {
+                font-size: 1.8rem;
+                white-space: nowrap;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calculator-container {
+                margin: 0 15px 20px 15px;
+                background: rgba(255, 255, 255, 0.75);
+                backdrop-filter: blur(20px);
+            }
+            
+            .calculator-form, .calculator-results {
+                padding: 30px 20px;
+                background: rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        @media (max-width: 360px) {
+            .form-title {
+                font-size: 1.5rem;
+                white-space: nowrap;
+            }
+            
+            .calculator-container {
+                margin: 0 10px 20px 10px;
+                background: rgba(255, 255, 255, 0.75);
+                backdrop-filter: blur(20px);
+            }
+            
+            .calculator-form, .calculator-results {
+                padding: 25px 15px;
+                background: rgba(255, 255, 255, 0.1);
+            }
+        }
+
+        @media (max-width: 320px) {
+            .calculator-container {
+                margin: 0 8px 20px 8px;
+                background: rgba(255, 255, 255, 0.75);
+                backdrop-filter: blur(20px);
+            }
+            
+            .calculator-form, .calculator-results {
+                padding: 20px 10px;
+                background: rgba(255, 255, 255, 0.1);
+            }
+            
+            .form-title {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -770,18 +970,20 @@
         </div>
     </div>
 
-    <div class="calculator-container">
-        <!-- Formularz kalkulatora -->
-        <div class="calculator-form">
-            <h1 class="form-title" data-i18n="title">Kalkulator czasu wietrzenia</h1>
+    <!-- Calculator Section with Clouds Background -->
+    <div class="calculator-section">
+        <div class="calculator-container">
+            <!-- Formularz kalkulatora -->
+            <div class="calculator-form">
+                <h1 class="form-title" data-i18n="title">Kalkulator czasu&nbsp;wietrzenia</h1>
             <p class="form-subtitle" data-i18n="subtitle">
-                Sprawdź, jak szybko wywietrzysz pomieszczenie, które posiada okno z funkcją wietrzenia na 6-tkę!
+                <strong>Sprawdź,</strong> jak szybko wywietrzysz pomieszczenie, które posiada okno z funkcją wietrzenia na <strong>6-tkę!</strong>
             </p>
             <p class="form-description" data-i18n="description">
-                Korzystając z kalkulatora, obliczysz czas potrzebny do całkowitej wymiany powietrza w pomieszczeniu.
+                Korzystając z kalkulatora, obliczysz czas potrzebny do całkowitej wymiany <strong>powietrza w pomieszczeniu.</strong>
             </p>
             <p class="form-instructions" data-i18n="instructions">
-                Podaj wymiary pomieszczenia oraz wymiary okna z funkcją wietrzenia na 6-tkę. Wskaż porę roku, ponieważ ma ona wpływ na czas wietrzenia.
+                <strong>Podaj wymiary</strong> pomieszczenia oraz wymiary okna z funkcją wietrzenia na 6-tkę. <strong>Wskaż porę roku,</strong> ponieważ ma ona wpływ na czas wietrzenia.
             </p>
 
             <form id="calculatorForm">
@@ -841,11 +1043,13 @@
             </div>
         </div>
     </div>
+    </div> <!-- calculator-section -->
 
     <script>
         let timerInterval = null;
         let pozostalyCzas = 0;
         let isPaused = false;
+        let timerStarted = false;
 
         // Security: Input validation function
         function validateInput(width, length, height, windowWidth, windowHeight, season) {
@@ -932,12 +1136,13 @@
                 // Ustawienie czasu w sekundach
                 pozostalyCzas = czasWietrzeniaCaly * 60;
                 isPaused = false;
+                timerStarted = false;
 
                 // Wyświetlenie wyników
                 aktualizujWyswietlanie(kubatura, obwodOkna, czasWietrzeniaCaly);
                 
-                // Start timera
-                startTimer(kubatura, obwodOkna, czasWietrzeniaCaly);
+                // Nie uruchamiamy automatycznie timera - użytkownik musi kliknąć START
+                // startTimer(kubatura, obwodOkna, czasWietrzeniaCaly);
                 
             } catch (error) {
                 document.getElementById("resultsContent").innerHTML = `
@@ -991,10 +1196,12 @@
                     <div class="result-value">${sanitizeOutput(obwodOkna)} m</div>
                 </div>
 
-                <button class="timer-btn" onclick="toggleTimer()">
-                    ${isPaused ? t('resume') : t('pause')}
-                </button>
-                <button class="timer-btn" onclick="resetTimer()">${t('reset')}</button>
+                <div class="timer-controls">
+                    <button class="timer-btn play-pause" onclick="toggleTimer()">
+                        ${!timerStarted ? '▶️ ' + t('start') : (isPaused ? '▶️ ' + t('resume') : '⏸️ ' + t('pause'))}
+                    </button>
+                    <button class="timer-btn reset" onclick="resetTimer()">🔄 ${t('reset')}</button>
+                </div>
             `;
         }
 
@@ -1028,10 +1235,19 @@
         }
 
         function toggleTimer() {
-            isPaused = !isPaused;
-            const button = document.querySelector('.timer-btn');
+            if (!timerStarted && currentResults) {
+                // Pierwszy start - rozpocznij timer z danymi z currentResults
+                timerStarted = true;
+                isPaused = false;
+                startTimer(currentResults.kubatura, currentResults.obwodOkna, currentResults.czasCalkowity);
+            } else {
+                // Timer już był uruchomiony - przełącz pauzę
+                isPaused = !isPaused;
+            }
+            
+            const button = document.querySelector('.timer-btn.play-pause');
             if (button) {
-                button.textContent = isPaused ? t('resume') : t('pause');
+                button.innerHTML = !timerStarted ? '▶️ ' + t('start') : (isPaused ? '▶️ ' + t('resume') : '⏸️ ' + t('pause'));
             }
         }
 
@@ -1041,6 +1257,8 @@
                 timerInterval = null;
             }
             
+            timerStarted = false;
+            isPaused = false;
             currentDisplayState = 'initial';
             currentResults = null;
             
@@ -1064,10 +1282,10 @@
         // Obiekt z tłumaczeniami
         const translations = {
             pl: {
-                title: "Kalkulator czasu wietrzenia",
-                subtitle: "Sprawdź, jak szybko wywietrzysz pomieszczenie, które posiada okno z funkcją wietrzenia na 6-tkę!",
-                description: "Korzystając z kalkulatora, obliczysz czas potrzebny do całkowitej wymiany powietrza w pomieszczeniu.",
-                instructions: "Podaj wymiary pomieszczenia oraz wymiary okna z funkcją wietrzenia na 6-tkę. Wskaż porę roku, ponieważ ma ona wpływ na czas wietrzenia.",
+                title: "Kalkulator czasu&nbsp;wietrzenia",
+                subtitle: "<strong>Sprawdź,</strong> jak szybko wywietrzysz pomieszczenie, które posiada okno z funkcją wietrzenia na <strong>6-tkę!</strong>",
+                description: "Korzystając z kalkulatora, obliczysz czas potrzebny do całkowitej wymiany <strong>powietrza w pomieszczeniu.</strong>",
+                instructions: "<strong>Podaj wymiary</strong> pomieszczenia oraz wymiary okna z funkcją wietrzenia na 6-tkę. <strong>Wskaż porę roku,</strong> ponieważ ma ona wpływ na czas wietrzenia.",
                 calculate: "Oblicz czas wietrzenia",
                 roomDimensions: "Wymiary pomieszczenia",
                 windowDimensions: "Wymiary okna",
@@ -1085,6 +1303,7 @@
                 enterDataMessage: "Wprowadź dane i kliknij \"Oblicz\", aby zobaczyć wyniki",
                 newCalculation: "Nowe obliczenie",
                 pause: "Pauza",
+                start: "Start",
                 resume: "Wznów",
                 error: "Błąd",
                 errorMessage: "Wprowadź poprawne, dodatnie wartości dla wszystkich pól.",
@@ -1099,10 +1318,10 @@
                 windowHeightPlaceholder: "Wysokość [m]"
             },
             cz: {
-                title: "Kalkulačka doby větrání",
-                subtitle: "Zkuste, jak rychle vyvětráte místnost, která má okno s funkcí 6mm odvětrání!",
-                description: "Pomocí kalkulačky vypočítáte čas potřebný k úplné výměně vzduchu v místnosti.",
-                instructions: "Uveďte rozměry místnosti a rozměry okna s funkcí větrání 6mm odsazení. Uveďte roční období, protože to ovlivňuje dobu větrání.",
+                title: "Kalkulačka doby&nbsp;větrání",
+                subtitle: "<strong>Zkuste,</strong> jak rychle vyvětráte místnost, která má okno s funkcí <strong>6mm odvětrání!</strong>",
+                description: "Pomocí kalkulačky vypočítáte čas potřebný k úplné výměně <strong>vzduchu v místnosti.</strong>",
+                instructions: "<strong>Uveďte rozměry</strong> místnosti a rozměry okna s funkcí větrání 6mm odsazení. <strong>Uveďte roční období,</strong> protože to ovlivňuje dobu větrání.",
                 calculate: "Vypočítat",
                 roomDimensions: "Rozměry místnosti",
                 windowDimensions: "Rozměry okna", 
@@ -1120,6 +1339,7 @@
                 enterDataMessage: "Zadejte údaje a klikněte na \"Vypočítat\", abyste viděli výsledky",
                 newCalculation: "Nový výpočet",
                 pause: "Pauza",
+                start: "Start",
                 resume: "Pokračovat",
                 error: "Chyba",
                 errorMessage: "Zadejte správné, kladné hodnoty pro všechna pole.",
@@ -1134,10 +1354,10 @@
                 windowHeightPlaceholder: "Výška [m]"
             },
             ru: {
-                title: "Калькулятор времени проветривания",
-                subtitle: "Оцените, как быстро проветривается помещение, в котором есть окно с функцией параллельного проветривания!",
-                description: "С помощью калькулятора вы сможете рассчитать время, необходимое для полной циркуляции воздуха в помещении.",
-                instructions: "Укажите размеры помещения и размеры окна с функцией параллельного проветривания. Укажите время года, поскольку оно влияет на время проветривания.",
+                title: "Калькулятор времени&nbsp;проветривания",
+                subtitle: "<strong>Оцените,</strong> как быстро проветривается помещение, в котором есть окно с функцией <strong>параллельного проветривания!</strong>",
+                description: "С помощью калькулятора вы сможете рассчитать время, необходимое для полной циркуляции <strong>воздуха в помещении.</strong>",
+                instructions: "<strong>Укажите размеры</strong> помещения и размеры окна с функцией параллельного проветривания. <strong>Укажите время года,</strong> поскольку оно влияет на время проветривания.",
                 calculate: "Рассчитать",
                 roomDimensions: "Размеры помещения",
                 windowDimensions: "Размеры окна",
@@ -1155,6 +1375,7 @@
                 enterDataMessage: "Введите данные и нажмите \"Рассчитать\", чтобы увидеть результаты",
                 newCalculation: "Новый расчет",
                 pause: "Пауза",
+                start: "Старт",
                 resume: "Продолжить",
                 error: "Ошибка",
                 errorMessage: "Введите правильные, положительные значения для всех полей.",
@@ -1184,7 +1405,8 @@
                     } else if (element.tagName === 'OPTION') {
                         element.textContent = translations[lang][key];
                     } else {
-                        element.textContent = translations[lang][key];
+                        // Używamy innerHTML dla tagów HTML (np. <strong>)
+                        element.innerHTML = translations[lang][key];
                     }
                 }
             });
