@@ -6,29 +6,14 @@
 }
 
 html {
-    background-image: url('../assets/clouds.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-color: #7ba4db;
     width: 100%;
     overflow-x: hidden;
     position: relative;
 }
 
-html::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.6);
-    z-index: -1;
-}
-
 body {
-    font-family: "Gotham", Arial, sans-serif;
+    font-family: "Gotham Book", "Gotham", Arial, sans-serif;
     background: transparent;
     min-height: 100vh;
     margin: 0;
@@ -261,8 +246,8 @@ body {
     color: #163872;
     font-size: 2.75rem;
     margin-bottom: 15px;
-    font-weight: 200;
-    font-family: "Gotham", sans-serif;
+    font-weight: 700;
+    font-family: "Gotham Bold", "Gotham", sans-serif;
     position: relative;
     z-index: 1;
     background: linear-gradient(135deg, #163872 0%, #1e40af 100%);
@@ -397,14 +382,14 @@ input[type="number"] {
     background: linear-gradient(135deg, #163872 0%, #1e40af 100%);
     color: #ffffff;
     border: none;
-    border-radius: 0;
+    border-radius: 15px;
     padding: 20px 40px;
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: "Gotham", sans-serif;
+    font-family: "Gotham Medium", "Gotham", sans-serif;
     letter-spacing: 1px;
     margin-top: 40px;
     width: 100%;
@@ -585,14 +570,14 @@ input[type="number"] {
     background: linear-gradient(135deg, #163872 0%, #1e40af 100%);
     color: #ffffff;
     border: none;
-    border-radius: 0;
+    border-radius: 15px;
     padding: 20px 40px;
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: "Gotham", sans-serif;
+    font-family: "Gotham Medium", "Gotham", sans-serif;
     letter-spacing: 1px;
     margin: 10px 5px 0 5px;
     min-width: 180px;
