@@ -13,7 +13,7 @@ html {
 }
 
 body {
-    font-family: "Gotham Book", "Gotham", Arial, sans-serif;
+    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
     background: transparent;
     min-height: 100vh;
     margin: 0;
@@ -22,6 +22,12 @@ body {
     overflow-x: hidden;
     width: 100%;
     position: relative;
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 300;
+    letter-spacing: 0;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
 }
 
 .header-section {
@@ -60,9 +66,13 @@ body {
 
 .language-label {
     color: #163872;
-    font-size: 14px;
-    font-weight: 500;
-    font-family: "Gotham", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    line-height: 1.6;
+    letter-spacing: 0;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
 }
 
 .language-select {
@@ -70,10 +80,15 @@ body {
     border: 2px solid rgba(22, 56, 114, 0.2);
     border-radius: 0;
     background: rgba(255, 255, 255, 0.95);
-    font-size: 14px;
+    font-size: 16px;
     color: #163872;
     cursor: pointer;
-    font-family: "Gotham", sans-serif;
+    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    letter-spacing: 0;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
     appearance: none;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23163872' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
     background-position: right 8px center;
@@ -174,12 +189,19 @@ body {
     margin: 0 auto 40px auto;
     border: 1px solid rgba(255, 255, 255, 0.2);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     min-height: 650px;
     box-sizing: border-box;
 }
 
 @media (min-width: 1200px) {
+    .calculator-container {
+        grid-template-columns: 1fr;
+        max-width: 1200px;
+    }
+}
+
+@media (min-width: 1260px) {
     .calculator-container {
         grid-template-columns: 1fr 1fr;
         max-width: 1200px;
@@ -244,10 +266,14 @@ body {
 
 .form-title {
     color: #163872;
-    font-size: 2.75rem;
+    font-size: 38px;
     margin-bottom: 15px;
-    font-weight: 700;
-    font-family: "Gotham Bold", "Gotham", sans-serif;
+    font-weight: 300;
+    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    line-height: 1.6;
+    letter-spacing: 0;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
     position: relative;
     z-index: 1;
     background: linear-gradient(135deg, #163872 0%, #1e40af 100%);
@@ -263,21 +289,36 @@ body {
     color: #7f8c8d;
     font-size: 16px;
     margin-bottom: 20px;
-    line-height: 1.5;
+    line-height: 1.6;
+    font-weight: 500;
+    letter-spacing: 0;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
 }
 
 .form-description {
     color: #7f8c8d;
     font-size: 16px;
     margin-bottom: 15px;
-    line-height: 1.5;
+    line-height: 1.6;
+    font-weight: 500;
+    letter-spacing: 0;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
 }
 
 .form-instructions {
     color: #7f8c8d;
     font-size: 16px;
     margin-bottom: 30px;
-    line-height: 1.5;
+    line-height: 1.6;
+    font-weight: 500;
+    letter-spacing: 0;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
 }
 
 .form-group {
@@ -290,9 +331,13 @@ body {
     display: block;
     margin-bottom: 8px;
     color: #163872;
-    font-weight: 500;
-    font-size: 0.875rem;
-    font-family: "Gotham", sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    line-height: 1.6;
+    letter-spacing: 0;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
 }
 
 .form-control {
@@ -301,10 +346,15 @@ body {
     border: 2px solid rgba(22, 56, 114, 0.2);
     border-radius: 0;
     background: rgba(255, 255, 255, 0.9);
-    font-size: 15px;
+    font-size: 16px;
     color: #163872;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: "Gotham", sans-serif;
+    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    letter-spacing: 0;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 20px rgba(22, 56, 114, 0.08);
     min-width: 160px;
@@ -331,11 +381,15 @@ input[type="number"] {
 
 .form-control::placeholder {
     color: rgba(22, 56, 114, 0.6);
-    font-weight: 400;
-    font-size: 15px;
+    font-weight: 300;
+    font-size: 16px;
     white-space: nowrap;
     overflow: visible;
     text-overflow: clip;
+    line-height: 1.6;
+    letter-spacing: 0;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
 }
 
 .form-select {
@@ -346,7 +400,12 @@ input[type="number"] {
     font-size: 16px;
     color: #163872;
     cursor: pointer;
-    font-family: "Gotham", sans-serif;
+    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    letter-spacing: 0;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
     width: 100%;
     appearance: none;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23163872' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
@@ -385,12 +444,15 @@ input[type="number"] {
     border-radius: 15px;
     padding: 20px 40px;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 300;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: "Gotham Medium", "Gotham", sans-serif;
-    letter-spacing: 1px;
+    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    line-height: 1.6;
+    letter-spacing: 0;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
     margin-top: 40px;
     width: 100%;
     position: relative;
@@ -447,7 +509,11 @@ input[type="number"] {
     font-size: 4rem;
     font-weight: 300;
     color: #163872;
-    font-family: "Gotham", monospace;
+    font-family: "Gotham SSm A", "Gotham SSm B", Arial, monospace;
+    line-height: 1.6;
+    letter-spacing: 0;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
     margin: 30px 0;
     text-align: center;
     background: linear-gradient(135deg, #163872 0%, #1e40af 100%);
@@ -573,12 +639,15 @@ input[type="number"] {
     border-radius: 15px;
     padding: 20px 40px;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 300;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: "Gotham Medium", "Gotham", sans-serif;
-    letter-spacing: 1px;
+    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    line-height: 1.6;
+    letter-spacing: 0;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
     margin: 10px 5px 0 5px;
     min-width: 180px;
     position: relative;
@@ -630,7 +699,9 @@ input[type="number"] {
 /* Responsive Design */
 @media (min-width: 1920px) {
     .calculator-container {
-        max-width: 1400px;
+        max-width: 1600px;
+        width: calc(100% - 160px);
+        grid-template-columns: 1fr 1fr;
     }
     
     .calculator-section {
@@ -638,9 +709,10 @@ input[type="number"] {
     }
     
     .header-container {
-        max-width: 1400px;
+        max-width: 1600px;
         /* Match inner content padding of calculator-form (60px) */
         padding: 0 60px;
+        width: calc(100% - 160px);
     }
     
     .dimensions-grid {
@@ -662,8 +734,8 @@ input[type="number"] {
 
 @media (min-width: 1400px) {
     .calculator-container {
-        max-width: 1200px;
-        width: calc(100% - 200px);
+        max-width: 1400px;
+        width: calc(100% - 120px);
     }
     
     .calculator-section {
@@ -671,16 +743,15 @@ input[type="number"] {
     }
     
     .header-container {
-        max-width: 1200px;
+        max-width: 1400px;
         /* Match calculator-container width and calculator-form inner padding */
         padding: 0 60px;
-        width: calc(100% - 200px);
+        width: calc(100% - 120px);
     }
 }
 
 @media (max-width: 1024px) {
     .calculator-container {
-        grid-template-columns: 1fr;
         max-width: 800px;
     }
     
