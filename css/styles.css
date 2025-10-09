@@ -1,4 +1,14 @@
 /* Winkhaus Ventilation Calculator - Modern Styles */
+
+/* Import czcionek Gotham */
+@font-face {
+    font-family: 'Gotham Light';
+    src: url('../fonts/gotham-light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +23,7 @@ html {
 }
 
 body {
-    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    font-family: "Gotham Light", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background: transparent;
     min-height: 100vh;
     margin: 0;
@@ -68,7 +78,7 @@ body {
     color: #163872;
     font-size: 16px;
     font-weight: 300;
-    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    font-family: "Gotham Light";
     line-height: 1.6;
     letter-spacing: 0;
     font-style: normal;
@@ -83,7 +93,7 @@ body {
     font-size: 16px;
     color: #163872;
     cursor: pointer;
-    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    font-family: "Gotham Light";
     font-weight: 300;
     line-height: 1.6;
     letter-spacing: 0;
@@ -269,7 +279,7 @@ body {
     font-size: 38px;
     margin-bottom: 15px;
     font-weight: 300;
-    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    font-family: "Gotham Light";
     line-height: 1.6;
     letter-spacing: 0;
     font-style: normal;
@@ -294,7 +304,7 @@ body {
     letter-spacing: 0;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
-    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    font-family: "Gotham Light";
 }
 
 .form-description {
@@ -306,7 +316,7 @@ body {
     letter-spacing: 0;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
-    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    font-family: "Gotham Light";
 }
 
 .form-instructions {
@@ -318,7 +328,7 @@ body {
     letter-spacing: 0;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
-    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    font-family: "Gotham Light";
 }
 
 .form-group {
@@ -333,7 +343,7 @@ body {
     color: #163872;
     font-weight: 300;
     font-size: 16px;
-    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    font-family: "Gotham Light";
     line-height: 1.6;
     letter-spacing: 0;
     font-style: normal;
@@ -349,7 +359,7 @@ body {
     font-size: 16px;
     color: #163872;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    font-family: "Gotham Light";
     font-weight: 300;
     line-height: 1.6;
     letter-spacing: 0;
@@ -400,7 +410,7 @@ input[type="number"] {
     font-size: 16px;
     color: #163872;
     cursor: pointer;
-    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    font-family: "Gotham Light";
     font-weight: 300;
     line-height: 1.6;
     letter-spacing: 0;
@@ -448,7 +458,7 @@ input[type="number"] {
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    font-family: "Gotham Light";
     line-height: 1.6;
     letter-spacing: 0;
     font-style: normal;
@@ -509,7 +519,7 @@ input[type="number"] {
     font-size: 4rem;
     font-weight: 300;
     color: #163872;
-    font-family: "Gotham SSm A", "Gotham SSm B", Arial, monospace;
+    font-family: "Gotham Light";
     line-height: 1.6;
     letter-spacing: 0;
     font-style: normal;
@@ -643,7 +653,7 @@ input[type="number"] {
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: "Gotham SSm A", "Gotham SSm B", Arial, sans-serif;
+    font-family: "Gotham Light";
     line-height: 1.6;
     letter-spacing: 0;
     font-style: normal;
