@@ -3,7 +3,7 @@
 /* Import czcionek Gotham */
 @font-face {
     font-family: 'Gotham Light';
-    src: url('../fonts/gotham-light.otf') format('opentype');
+    src: url('../fonts/Gotham-Light.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
