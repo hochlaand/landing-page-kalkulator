@@ -448,7 +448,7 @@ input[type="number"] {
 }
 
 .calculate-btn {
-    background: linear-gradient(135deg, #163872 0%, #1e40af 100%);
+    background: #163872;
     color: #ffffff;
     border: none;
     border-radius: 15px;
@@ -490,7 +490,7 @@ input[type="number"] {
 }
 
 .calculate-btn:hover {
-    background: linear-gradient(135deg, #1e40af 0%, #163872 100%);
+    background: #1e40af;
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(22, 56, 114, 0.4);
 }
@@ -594,7 +594,7 @@ input[type="number"] {
 }
 
 .completion-message {
-    background: linear-gradient(135deg, #163872 0%, #1e40af 100%);
+    background: #163872;
     color: white;
     padding: 40px;
     border-radius: 0;
@@ -624,7 +624,7 @@ input[type="number"] {
     content: '';
     position: absolute;
     inset: 2px;
-    background: linear-gradient(135deg, #163872 0%, #1e40af 100%);
+    background: #163872;
     border-radius: 0;
     z-index: -1;
 }
@@ -646,7 +646,7 @@ input[type="number"] {
 }
 
 .timer-btn {
-    background: linear-gradient(135deg, #163872 0%, #1e40af 100%);
+    background: #163872;
     color: #ffffff;
     border: none;
     border-radius: 15px;
@@ -687,7 +687,7 @@ input[type="number"] {
 }
 
 .timer-btn:hover {
-    background: linear-gradient(135deg, #1e40af 0%, #163872 100%);
+    background: #1e40af;
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(22, 56, 114, 0.4);
 }
