@@ -745,6 +745,10 @@ input[type="number"] {
         font-size: 15px;
         min-width: 180px;
     }
+    
+    .calculate-btn {
+        margin-top: 40px;
+    }
 }
 
 @media (min-width: 1400px) {
