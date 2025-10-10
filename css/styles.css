@@ -452,23 +452,26 @@ input[type="number"] {
     color: #ffffff;
     border: none;
     border-radius: 15px;
-    padding: 20px 40px;
-    font-size: 16px;
+    padding: 10px 30px;
+    font-size: 14px;
     font-weight: 300;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     font-family: "Gotham Light";
-    line-height: 1.6;
+    line-height: 1;
     letter-spacing: 0;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
-    margin-top: 40px;
-    width: 100%;
+    margin-top: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     position: relative;
     z-index: 1;
     box-shadow: 0 8px 30px rgba(22, 56, 114, 0.3);
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .calculate-btn::before {
@@ -647,23 +650,25 @@ input[type="number"] {
     color: #ffffff;
     border: none;
     border-radius: 15px;
-    padding: 20px 40px;
-    font-size: 16px;
+    padding: 10px 30px;
+    font-size: 14px;
     font-weight: 300;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     font-family: "Gotham Light";
-    line-height: 1.6;
+    line-height: 1;
     letter-spacing: 0;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     margin: 0;
-    min-width: 180px;
+    display: inline-block;
     position: relative;
     z-index: 1;
     box-shadow: 0 8px 30px rgba(22, 56, 114, 0.3);
     overflow: hidden;
+    box-sizing: border-box;
+    vertical-align: top;
 }
 
 .timer-btn::before {
@@ -897,8 +902,13 @@ input[type="number"] {
     }
 
     .timer-btn {
-        min-width: 150px;
-        padding: 15px 30px;
+        display: inline-block;
+        padding: 10px 30px;
+        font-size: 14px;
+    }
+
+    .calculate-btn {
+        padding: 12px 30px;
         font-size: 14px;
     }
 
