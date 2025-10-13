@@ -293,7 +293,7 @@ body {
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
-    word-break: keep-all;
+    word-break: break-word;
 }
 
 .form-subtitle {
@@ -309,7 +309,7 @@ body {
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
-    word-break: keep-all;
+    word-break: break-word;
 }
 
 .form-description {
@@ -325,7 +325,7 @@ body {
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
-    word-break: keep-all;
+    word-break: break-word;
 }
 
 .form-instructions {
@@ -341,7 +341,7 @@ body {
     word-wrap: break-word;
     overflow-wrap: break-word;
     hyphens: auto;
-    word-break: keep-all;
+    word-break: break-word;
 }
 
 .form-group {
@@ -937,7 +937,7 @@ input[type="number"] {
         font-size: 2rem;
         white-space: normal;
         word-wrap: break-word;
-        word-break: keep-all;
+        word-break: break-word;
         line-height: 1.2;
     }
     
@@ -1065,7 +1065,7 @@ input[type="number"] {
         font-size: 2.2rem;
         white-space: normal;
         word-wrap: break-word;
-        word-break: keep-all;
+        word-break: break-word;
         line-height: 1.2;
     }
     
@@ -1093,7 +1093,7 @@ input[type="number"] {
         font-size: 1.8rem;
         white-space: normal;
         word-wrap: break-word;
-        word-break: keep-all;
+        word-break: break-word;
         line-height: 1.2;
     }
 }
@@ -1114,7 +1114,7 @@ input[type="number"] {
         font-size: 1.7rem;
         white-space: normal;
         word-wrap: break-word;
-        word-break: keep-all;
+        word-break: break-word;
         line-height: 1.2;
         margin-bottom: 20px;
     }
@@ -1136,7 +1136,7 @@ input[type="number"] {
         font-size: 1.5rem;
         white-space: normal;
         word-wrap: break-word;
-        word-break: keep-all;
+        word-break: break-word;
         line-height: 1.2;
     }
     
@@ -1173,7 +1173,7 @@ input[type="number"] {
         font-size: 1.4rem;
         white-space: normal;
         word-wrap: break-word;
-        word-break: keep-all;
+        word-break: break-word;
         line-height: 1.1;
         margin-bottom: 15px;
     }
@@ -1255,5 +1255,31 @@ input[type="number"] {
     .header-container {
         padding: 0 10px;
         width: calc(100% - 10px);
+    }
+}
+
+/* Dodatkowe ustawienia dla bardzo małych ekranów i długich tekstów */
+@media (max-width: 400px) {
+    .calculator-container {
+        width: calc(100% - 10px);
+        margin: 0 auto;
+    }
+    
+    .calculator-form, .calculator-results {
+        padding: 15px 10px;
+    }
+    
+    .form-title {
+        font-size: 1.2rem;
+        line-height: 1.1;
+        margin-bottom: 10px;
+        padding: 0 5px;
+    }
+    
+    .form-subtitle, .form-description, .form-instructions {
+        font-size: 12px;
+        line-height: 1.2;
+        margin-bottom: 8px;
+        padding: 0 5px;
     }
 }
