@@ -381,33 +381,52 @@ const translations = {
 function changeLanguage(lang) {
     currentLanguage = lang;
     
-    // Obsługa zwykłych elementów z data-i18n
-    const elements = document.querySelectorAll('[data-i18n]');
-    elements.forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-            if (element.tagName === 'BUTTON') {
-                element.textContent = translations[lang][key];
-            } else if (element.tagName === 'OPTION') {
-                element.textContent = translations[lang][key];
+    // Używamy requestAnimationFrame aby upewnić się, że DOM jest gotowy
+    requestAnimationFrame(() => {
+        // Obsługa zwykłych elementów z data-i18n
+        const elements = document.querySelectorAll('[data-i18n]');
+        console.log(`Znaleziono ${elements.length} elementów do tłumaczenia`);
+        
+        elements.forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) {
+                if (element.tagName === 'BUTTON') {
+                    element.textContent = translations[lang][key];
+                } else if (element.tagName === 'OPTION') {
+                    element.textContent = translations[lang][key];
+                } else if (element.tagName === 'LABEL') {
+                    // Dla label używamy textContent aby uniknąć problemów z renderowaniem
+                    element.textContent = translations[lang][key];
+                } else {
+                    // Używamy innerHTML dla tagów HTML (np. <strong>)
+                    element.innerHTML = translations[lang][key];
+                }
             } else {
-                // Używamy innerHTML dla tagów HTML (np. <strong>)
-                element.innerHTML = translations[lang][key];
+                console.warn(`Brak tłumaczenia dla klucza: ${key} w języku: ${lang}`);
             }
-        }
+        });
+        
+        // Obsługa placeholderów z data-i18n-placeholder
+        const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
+        console.log(`Znaleziono ${placeholderElements.length} placeholderów do tłumaczenia`);
+        
+        placeholderElements.forEach(element => {
+            const key = element.getAttribute('data-i18n-placeholder');
+            if (translations[lang] && translations[lang][key]) {
+                element.placeholder = translations[lang][key];
+            } else {
+                console.warn(`Brak tłumaczenia placeholdera dla klucza: ${key} w języku: ${lang}`);
+            }
+        });
+        
+        // Wymuszenie ponownego renderowania (reflow) dla urządzeń mobilnych
+        document.body.offsetHeight;
+        
+        // Aktualizacja dynamicznie generowanej zawartości
+        updateDynamicContent();
+        
+        console.log(`Język zmieniony na: ${lang}`);
     });
-    
-    // Obsługa placeholderów z data-i18n-placeholder
-    const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
-    placeholderElements.forEach(element => {
-        const key = element.getAttribute('data-i18n-placeholder');
-        if (translations[lang] && translations[lang][key]) {
-            element.placeholder = translations[lang][key];
-        }
-    });
-    
-    // Aktualizacja dynamicznie generowanej zawartości
-    updateDynamicContent();
 }
 
 // Funkcja pomocnicza do pobierania tłumaczeń
@@ -448,7 +467,11 @@ document.addEventListener('DOMContentLoaded', function() {
     currentLanguage = 'pl';
     currentDisplayState = 'initial';
     currentResults = null;
-    changeLanguage('pl');
+    
+    // Opóźniona inicjalizacja języka dla zapewnienia pełnego załadowania DOM
+    setTimeout(() => {
+        changeLanguage('pl');
+    }, 100);
 
     // Dodanie obsługi Enter w formularzu
     const calculatorForm = document.getElementById('calculatorForm');
@@ -465,7 +488,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const languageSelect = document.getElementById('languageSelect');
     if (languageSelect) {
         languageSelect.addEventListener('change', function(e) {
-            changeLanguage(e.target.value);
+            e.preventDefault();
+            const selectedLang = e.target.value;
+            // Dodatkowe opóźnienie dla urządzeń mobilnych
+            setTimeout(() => {
+                changeLanguage(selectedLang);
+            }, 50);
         });
     }
 });
