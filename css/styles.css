@@ -519,27 +519,6 @@ input[type="number"] {
     box-shadow: 0 5px 20px rgba(22, 56, 114, 0.5);
 }
 
-/* Mobile-specific active state */
-@media (hover: none) and (pointer: coarse) {
-    .calculate-btn:active {
-        background: #163872;
-        color: #ffffff;
-        border: 2px solid #163872;
-        transition: all 0.1s ease;
-    }
-    
-    .calculate-btn:active::before {
-        opacity: 0;
-    }
-}
-
-/* Desktop - preserve hover effect on active */
-@media (hover: hover) and (pointer: fine) {
-    .calculate-btn:active::before {
-        opacity: 1;
-    }
-}
-
 .results-content {
     text-align: center;
     width: 100%;
@@ -739,27 +718,6 @@ input[type="number"] {
 .timer-btn:active {
     transform: translateY(-1px) scale(0.98);
     box-shadow: 0 5px 20px rgba(22, 56, 114, 0.5);
-}
-
-/* Mobile-specific active state */
-@media (hover: none) and (pointer: coarse) {
-    .timer-btn:active {
-        background: #163872;
-        color: #ffffff;
-        border: 2px solid #163872;
-        transition: all 0.1s ease;
-    }
-    
-    .timer-btn:active::before {
-        opacity: 0;
-    }
-}
-
-/* Desktop - preserve hover effect on active */
-@media (hover: hover) and (pointer: fine) {
-    .timer-btn:active::before {
-        opacity: 1;
-    }
 }
 
 .timer-controls {
