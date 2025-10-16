@@ -496,4 +496,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 50);
         });
     }
+
+    // Reset hover state on mobile devices only
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    if (isTouchDevice) {
+        const buttons = document.querySelectorAll('.calculate-btn, .timer-btn');
+        buttons.forEach(button => {
+            button.addEventListener('touchend', function() {
+                // Blur after a small delay to show the click feedback
+                setTimeout(() => {
+                    this.blur();
+                }, 300);
+            });
+        });
+    }
 });
