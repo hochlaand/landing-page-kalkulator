@@ -515,11 +515,29 @@ input[type="number"] {
 }
 
 .calculate-btn:active {
-    transform: translateY(-1px);
+    transform: translateY(0);
+    background: #163872;
+    color: #ffffff;
+    border: 2px solid transparent;
 }
 
-.calculate-btn:active {
-    transform: translateY(0);
+.calculate-btn:active::before {
+    opacity: 0;
+}
+
+/* Reset hover effect on touch devices after click */
+@media (hover: none) {
+    .calculate-btn:hover {
+        background: #163872;
+        color: #ffffff;
+        transform: translateY(0);
+        box-shadow: 0 8px 30px rgba(22, 56, 114, 0.3);
+        border: 2px solid transparent;
+    }
+    
+    .calculate-btn:hover::before {
+        opacity: 0;
+    }
 }
 
 .results-content {
@@ -720,6 +738,28 @@ input[type="number"] {
 
 .timer-btn:active {
     transform: translateY(0);
+    background: #163872;
+    color: #ffffff;
+    border: 2px solid transparent;
+}
+
+.timer-btn:active::before {
+    opacity: 0;
+}
+
+/* Reset hover effect on touch devices after click */
+@media (hover: none) {
+    .timer-btn:hover {
+        background: #163872;
+        color: #ffffff;
+        transform: translateY(0);
+        box-shadow: 0 8px 30px rgba(22, 56, 114, 0.3);
+        border: 2px solid transparent;
+    }
+    
+    .timer-btn:hover::before {
+        opacity: 0;
+    }
 }
 
 .timer-controls {
