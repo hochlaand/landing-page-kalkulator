@@ -16,7 +16,7 @@
 }
 
 html {
-    background-color: #7ba4db;
+    background-color: #7ba4db !important;
     width: 100%;
     overflow-x: hidden;
     position: relative;
@@ -24,7 +24,7 @@ html {
 
 body {
     font-family: "Gotham Light";
-    background: transparent;
+    background: transparent !important;
     min-height: 100vh;
     margin: 0;
     padding: 0;
@@ -159,6 +159,7 @@ body {
 .calculator-section {
     position: relative;
     padding: 40px 40px;
+    background: transparent !important;
 }
 
 .calculator-section .calculator-container {
@@ -280,7 +281,7 @@ body {
     margin-bottom: 15px;
     font-weight: 300;
     font-family: "Gotham Light";
-    line-height: 1.6;
+    line-height: 1.3;
     letter-spacing: 0;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
@@ -290,58 +291,58 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-    word-break: break-word;
+    word-wrap: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+    word-break: normal;
 }
 
 .form-subtitle {
     color: #7f8c8d;
     font-size: 16px;
     margin-bottom: 20px;
-    line-height: 1.6;
+    line-height: 1.5;
     font-weight: 500;
     letter-spacing: 0;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "Gotham Light";
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-    word-break: break-word;
+    word-wrap: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+    word-break: normal;
 }
 
 .form-description {
     color: #7f8c8d;
     font-size: 16px;
     margin-bottom: 15px;
-    line-height: 1.6;
+    line-height: 1.5;
     font-weight: 500;
     letter-spacing: 0;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "Gotham Light";
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-    word-break: break-word;
+    word-wrap: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+    word-break: normal;
 }
 
 .form-instructions {
     color: #7f8c8d;
     font-size: 16px;
     margin-bottom: 30px;
-    line-height: 1.6;
+    line-height: 1.5;
     font-weight: 500;
     letter-spacing: 0;
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     font-family: "Gotham Light";
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-    hyphens: auto;
-    word-break: break-word;
+    word-wrap: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+    word-break: normal;
 }
 
 .form-group {
@@ -682,6 +683,8 @@ input[type="number"] {
     overflow: hidden;
     box-sizing: border-box;
     vertical-align: top;
+    min-width: 140px;
+    text-align: center;
 }
 
 .timer-btn::before {
@@ -818,9 +821,12 @@ input[type="number"] {
     }
 
     .language-select {
-        min-width: 80px;
+        min-width: 100px;
         font-size: 12px;
         padding: 6px 10px;
+        padding-right: 28px;
+        background-size: 14px;
+        background-position: right 8px center;
     }
 
     .language-label {
@@ -866,9 +872,12 @@ input[type="number"] {
     }
     
     .language-select {
-        min-width: 70px;
+        min-width: 90px;
         font-size: 11px;
         padding: 5px 8px;
+        padding-right: 26px;
+        background-size: 12px;
+        background-position: right 6px center;
     }
 }
 
@@ -889,9 +898,12 @@ input[type="number"] {
     }
     
     .language-select {
-        min-width: 60px;
-        font-size: 10px;
+        min-width: 70px;
+        font-size: 9px;
         padding: 4px 6px;
+        padding-right: 22px;
+        background-size: 10px;
+        background-position: right 4px center;
     }
 }
 
@@ -922,6 +934,7 @@ input[type="number"] {
         display: inline-block;
         padding: 10px 30px;
         font-size: 14px;
+        min-width: 140px;
     }
 
     .calculate-btn {
@@ -936,8 +949,6 @@ input[type="number"] {
     .form-title {
         font-size: 2rem;
         white-space: normal;
-        word-wrap: break-word;
-        word-break: break-word;
         line-height: 1.2;
     }
     
@@ -1064,8 +1075,6 @@ input[type="number"] {
     .form-title {
         font-size: 2.2rem;
         white-space: normal;
-        word-wrap: break-word;
-        word-break: break-word;
         line-height: 1.2;
     }
     
@@ -1089,32 +1098,17 @@ input[type="number"] {
 }
 
 @media (max-width: 480px) {
-    .form-title {
-        font-size: 1.8rem;
-        white-space: normal;
-        word-wrap: break-word;
-        word-break: break-word;
-        line-height: 1.2;
-    }
-}
-
-@media (max-width: 480px) {
     .calculator-container {
         width: calc(100% - 30px);
-        background: rgba(255, 255, 255, 0.75);
-        backdrop-filter: blur(20px);
     }
     
     .calculator-form, .calculator-results {
         padding: 30px 20px;
-        background: rgba(255, 255, 255, 0.1);
     }
     
     .form-title {
         font-size: 1.7rem;
         white-space: normal;
-        word-wrap: break-word;
-        word-break: break-word;
         line-height: 1.2;
         margin-bottom: 20px;
     }
@@ -1129,26 +1123,33 @@ input[type="number"] {
         padding: 15px 20px;
         font-size: 15px;
     }
+    
+    .timer-btn {
+        min-width: 120px;
+        padding: 10px 20px;
+        font-size: 13px;
+    }
 }
 
 @media (max-width: 360px) {
     .form-title {
         font-size: 1.5rem;
         white-space: normal;
-        word-wrap: break-word;
-        word-break: break-word;
         line-height: 1.2;
     }
     
     .calculator-container {
         width: calc(100% - 20px);
-        background: rgba(255, 255, 255, 0.75);
-        backdrop-filter: blur(20px);
     }
     
     .calculator-form, .calculator-results {
         padding: 25px 15px;
-        background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .timer-btn {
+        min-width: 110px;
+        padding: 8px 16px;
+        font-size: 12px;
     }
 }
 
@@ -1158,22 +1159,26 @@ input[type="number"] {
         width: calc(100% - 16px);
     }
     
+    .language-select {
+        min-width: 65px;
+        font-size: 8px;
+        padding: 3px 5px;
+        padding-right: 20px;
+        background-size: 9px;
+        background-position: right 3px center;
+    }
+    
     .calculator-container {
         width: calc(100% - 16px);
-        background: rgba(255, 255, 255, 0.75);
-        backdrop-filter: blur(20px);
     }
     
     .calculator-form, .calculator-results {
         padding: 20px 12px;
-        background: rgba(255, 255, 255, 0.1);
     }
     
     .form-title {
         font-size: 1.4rem;
         white-space: normal;
-        word-wrap: break-word;
-        word-break: break-word;
         line-height: 1.1;
         margin-bottom: 15px;
     }
@@ -1215,6 +1220,12 @@ input[type="number"] {
     .results-content {
         gap: 8px;
     }
+    
+    .timer-btn {
+        min-width: 100px;
+        padding: 8px 15px;
+        font-size: 11px;
+    }
 }
 
 /* Specjalne ustawienia dla bardzo małych ekranów i długich tekstów (np. rosyjski) */
@@ -1232,16 +1243,12 @@ input[type="number"] {
         font-size: 1.2rem;
         line-height: 1.1;
         margin-bottom: 10px;
-        word-break: break-word;
-        overflow-wrap: anywhere;
     }
     
     .form-subtitle, .form-description, .form-instructions {
         font-size: 12px;
         line-height: 1.2;
         margin-bottom: 10px;
-        word-break: break-word;
-        overflow-wrap: anywhere;
     }
     
     .form-control, .form-select {
@@ -1258,28 +1265,19 @@ input[type="number"] {
     }
 }
 
-/* Dodatkowe ustawienia dla bardzo małych ekranów i długich tekstów */
-@media (max-width: 400px) {
-    .calculator-container {
-        width: calc(100% - 10px);
-        margin: 0 auto;
+/* Dodatkowa reguła dla ekranów ≤280px */
+@media (max-width: 280px) {
+    .language-select {
+        min-width: 60px;
+        font-size: 7px;
+        padding: 3px 4px;
+        padding-right: 18px;
+        background-size: 8px;
+        background-position: right 2px center;
     }
     
-    .calculator-form, .calculator-results {
-        padding: 15px 10px;
-    }
-    
-    .form-title {
-        font-size: 1.2rem;
-        line-height: 1.1;
-        margin-bottom: 10px;
-        padding: 0 5px;
-    }
-    
-    .form-subtitle, .form-description, .form-instructions {
-        font-size: 12px;
-        line-height: 1.2;
-        margin-bottom: 8px;
-        padding: 0 5px;
+    .header-container {
+        padding: 0 8px;
+        width: calc(100% - 8px);
     }
 }

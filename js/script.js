@@ -232,10 +232,10 @@ function resetTimer() {
 // Obiekt z tłumaczeniami
 const translations = {
     pl: {
-        title: "Kalkulator czasu&nbsp;wietrzenia",
-        subtitle: "<strong>Sprawdź,</strong> jak szybko wywietrzysz pomieszczenie, które posiada <br>okno z funkcją wietrzenia na <strong>6-tkę!</strong>",
-        description: "Korzystając z kalkulatora, obliczysz czas potrzebny <br>do całkowitej wymiany <strong>powietrza w pomieszczeniu.</strong>",
-        instructions: "<strong>Podaj wymiary</strong> pomieszczenia oraz wymiary okna z funkcją wietrzenia na 6-tkę. <br><strong>Wskaż porę roku,</strong> ponieważ ma ona wpływ na czas wietrzenia.",
+        title: "Kalkulator czasu wietrzenia",
+        subtitle: "<strong>Sprawdź,</strong> jak szybko wywietrzysz pomieszczenie, które posiada okno z funkcją wietrzenia na <strong>6-tkę!</strong>",
+        description: "Korzystając z kalkulatora, obliczysz czas potrzebny do całkowitej wymiany <strong>powietrza w pomieszczeniu.</strong>",
+        instructions: "<strong>Podaj wymiary</strong> pomieszczenia oraz wymiary okna z funkcją wietrzenia na 6-tkę. <strong>Wskaż porę roku,</strong> ponieważ ma ona wpływ na czas wietrzenia.",
         calculate: "Oblicz czas wietrzenia",
         roomDimensions: "Wymiary pomieszczenia",
         windowDimensions: "Wymiary okna",
@@ -268,10 +268,10 @@ const translations = {
         windowHeightPlaceholder: "Wysokość [m]"
     },
     cz: {
-        title: "Kalkulačka doby&nbsp;větrání",
-        subtitle: "<strong>Zkuste,</strong> jak rychle vyvětráte místnost, která má <br>okno s funkcí <strong>6mm odvětrání!</strong>",
-        description: "Pomocí kalkulačky vypočítáte čas potřebný <br>k úplné výměně <strong>vzduchu v místnosti.</strong>",
-        instructions: "<strong>Uveďte rozměry</strong> místnosti a rozměry okna s funkcí větrání 6mm odsazení. <br><strong>Uveďte roční období,</strong> protože to ovlivňuje dobu větrání.",
+        title: "Kalkulačka doby větrání",
+        subtitle: "<strong>Zkuste,</strong> jak rychle vyvětráte místnost, která má okno s funkcí <strong>6mm odvětrání!</strong>",
+        description: "Pomocí kalkulačky vypočítáte čas potřebný k úplné výměně <strong>vzduchu v místnosti.</strong>",
+        instructions: "<strong>Uveďte rozměry</strong> místnosti a rozměry okna s funkcí větrání 6mm odsazení. <strong>Uveďte roční období,</strong> protože to ovlivňuje dobu větrání.",
         calculate: "Vypočítat",
         roomDimensions: "Rozměry místnosti",
         windowDimensions: "Rozměry okna", 
@@ -304,10 +304,10 @@ const translations = {
         windowHeightPlaceholder: "Výška [m]"
     },
     ru: {
-        title: "Калькулятор времени&nbsp;проветривания",
-        subtitle: "<strong>Оцените,</strong> как быстро проветривается помещение, в котором есть <br>окно с функцией <strong>параллельного проветривания!</strong>",
-        description: "С помощью калькулятора вы сможете рассчитать время, необходимое <br>для полной циркуляции <strong>воздуха в помещении.</strong>",
-        instructions: "<strong>Укажите размеры</strong> помещения и размеры окна с функцией параллельного проветривания. <br><strong>Укажите время года,</strong> поскольку оно влияет на время проветривания.",
+        title: "Калькулятор времени проветривания",
+        subtitle: "<strong>Оцените,</strong> как быстро проветривается помещение, в котором есть окно с функцией <strong>параллельного проветривания!</strong>",
+        description: "С помощью калькулятора вы сможете рассчитать время, необходимое для полной циркуляции <strong>воздуха в помещении.</strong>",
+        instructions: "<strong>Укажите размеры</strong> помещения и размеры окна с функцией параллельного проветривания. <strong>Укажите время года,</strong> поскольку оно влияет на время проветривания.",
         calculate: "Рассчитать",
         roomDimensions: "Размеры помещения",
         windowDimensions: "Размеры окна",
@@ -340,10 +340,10 @@ const translations = {
         windowHeightPlaceholder: "Высота [м]"
     },
     ua: {
-        title: "Калькулятор часу&nbsp;провітрювання",
-        subtitle: "<strong>Дізнайся,</strong> за скільки часу можна ефективно провітрити приміщення з <br>вікном, що має функцію провітрювання!",
-        description: "Скориставшись калькулятором, ви зможете розрахувати час, необхідний <br>для повного обміну <strong>повітря в приміщенні.</strong>",
-        instructions: "<strong>Вкажіть розміри</strong> приміщення та розміри вікна, що має функцію провітрювання. <br><strong>Оберіть також пору року — адже вона впливає на тривалість провітрювання.</strong>",
+        title: "Калькулятор часу провітрювання",
+        subtitle: "<strong>Дізнайся,</strong> за скільки часу можна ефективно провітрити приміщення з вікном, що має функцію провітрювання!",
+        description: "Скориставшись калькулятором, ви зможете розрахувати час, необхідний для повного обміну <strong>повітря в приміщенні.</strong>",
+        instructions: "<strong>Вкажіть розміри</strong> приміщення та розміри вікна, що має функцію провітрювання. <strong>Оберіть також пору року — адже вона впливає на тривалість провітрювання.</strong>",
         calculate: "Розрахувати",
         roomDimensions: "Розміри приміщення",
         windowDimensions: "Розміри вікна",
