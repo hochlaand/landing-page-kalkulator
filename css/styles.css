@@ -464,7 +464,7 @@ input[type="number"] {
 .calculate-btn {
     background: #163872;
     color: #ffffff;
-    border: none;
+    border: 2px solid transparent;
     border-radius: 15px;
     padding: 10px 30px;
     font-size: 14px;
@@ -492,21 +492,26 @@ input[type="number"] {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.6s;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(22, 56, 114, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 15px;
+    z-index: -1;
 }
 
 .calculate-btn:hover::before {
-    left: 100%;
+    opacity: 1;
 }
 
 .calculate-btn:hover {
-    background: #1e40af;
+    background: transparent;
+    color: #163872;
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(22, 56, 114, 0.4);
+    border: 2px solid #163872;
 }
 
 .calculate-btn:active {
@@ -662,7 +667,7 @@ input[type="number"] {
 .timer-btn {
     background: #163872;
     color: #ffffff;
-    border: none;
+    border: 2px solid transparent;
     border-radius: 15px;
     padding: 10px 30px;
     font-size: 14px;
@@ -691,21 +696,26 @@ input[type="number"] {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.6s;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(22, 56, 114, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 15px;
+    z-index: -1;
 }
 
 .timer-btn:hover::before {
-    left: 100%;
+    opacity: 1;
 }
 
 .timer-btn:hover {
-    background: #1e40af;
+    background: transparent;
+    color: #163872;
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(22, 56, 114, 0.4);
+    border: 2px solid #163872;
 }
 
 .timer-btn:active {
